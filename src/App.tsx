@@ -1,23 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { throws } from "assert";
-
-// IMPUESTO AL CONSUMO El impuesto básico sobre las ventas se aplica con una tasa del 10% sobre todos los bienes, excepto los libros, los alimentos y los productos médicos que están exentos.
-//El derecho de importación es un impuesto adicional sobre las ventas aplicable a todos los bienes importados con una tasa del 5%, sin exenciones.
-//Cuando yo compro artículos, recibo un ticket con el nombre de todos los artículos y su precio (incluido el impuesto), terminando con el coste total de los artículos, y los importes
-//totales de los impuestos sobre las ventas pagado. Las reglas de redondeo para el impuesto sobre las ventas son que para una tasa de impuestos de n% y un precio del producto base p contiene
-//(np/100 redondeado hacia arriba al 0,05 más cercano) de cantidad de impuesto sobre las ventas.
-
-// Implementa una aplicación que imprime los detalles de la compra de estas cestas de productos...
-// INPUT:
-// Input 1: 1 libro a 12.49 1 película en DVD a 14.99 1 barrita de chocolate a 0.85
-
-// Input 2: 1 caja de bombones de importación a 10.00 1 frasco de perfume de importación a 47.50
-
-// Input 3: 1 frasco de perfume de importación a 27.99 1 frasco de perfume a 18.99
-
-// 1 caja de pastillas para el estómago a 9.75 1 caja de bombones importados a 11.25
 
 interface IProducts {
   name: string;
