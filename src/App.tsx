@@ -197,13 +197,13 @@ class App extends React.PureComponent<IProps, IState> {
               </tr>
             </thead>
             <tbody>
-            {this.state.selectedProducts.map((p, i) => (
-              <tr key={i}>
-                <td>1</td>
-                <td>{p.name}</td>
-                <td>{p.price * p.ammount}€</td>
-              </tr>
-            ))}
+              {this.state.selectedProducts.map((p, i) => (
+                <tr key={i}>
+                  <td>1</td>
+                  <td>{p.name}</td>
+                  <td>{p.price * p.ammount}€</td>
+                </tr>
+              ))}
             </tbody>
             <tr className="mt-5">
               <th>Impuestos</th>
@@ -217,7 +217,6 @@ class App extends React.PureComponent<IProps, IState> {
                 <strong> {this.state.totalPrice}€</strong>
               </td>
             </tr>
-            
           </table>
         ) : null}
       </div>
