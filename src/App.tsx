@@ -51,6 +51,7 @@ class App extends React.PureComponent<IProps, IState> {
     };
   }
 
+  //Inputs are simulated as it comes from the DB
   input1: shoppingCart = {
     index: 1,
     products: [
@@ -131,8 +132,12 @@ class App extends React.PureComponent<IProps, IState> {
       }
     ]
   };
+  // End of DB mockup
+
+  // Put all the inputs on a single array as it comes from DB
   shopingCarts = [this.input1, this.input2, this.input3];
 
+  // Added amount in case customer select more than one product
   calculateTaxes = () => {
     let totalTaxes = 0;
     for (let product of this.state.selectedProducts) {
@@ -157,6 +162,7 @@ class App extends React.PureComponent<IProps, IState> {
     totalPrice += Number(this.state.totalTaxes);
     this.setState({ totalPrice: Number(totalPrice.toFixed(2)) });
   };
+
   render() {
     return (
       <div className="container">
@@ -172,21 +178,23 @@ class App extends React.PureComponent<IProps, IState> {
                 selectedProducts: this.shopingCarts[Number(e.target.value) - 1]
                   .products
               });
-
+              // Settimeout to let React to change the state
               setTimeout(() => {
                 this.calculateTaxes();
               }, 1);
             } else {
+              //Reset the state when no shopping cart is selected
               this.setState({ selectedProducts: [] });
             }
           }}
         >
           <option value="0">Ninguna cesta seleccionada</option>
+          {/* Map to create dinamically the select */}
           {this.shopingCarts.map(c => (
             <option value={c.index}>Cesta {c.index}</option>
           ))}
         </select>
-
+        {/* Check to avoid showing the thead when no shopping cart selected */}
         {this.state.selectedProducts.length ? (
           <table className="table mt-5 table-hover">
             <thead className="thead-dark">
